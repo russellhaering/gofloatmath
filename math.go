@@ -8,23 +8,17 @@ import (
 )
 
 var (
-	foo = 10
+	foo = 100
 )
 
 func FirstWay() float64 {
-	a := float64(6) / float64(127)
-	b := float64(130 - foo*2)
-
-	return 20 + b*a
+	return float64(foo) * (float64(6) / float64(127))
 }
 
 func SecondWay() float64 {
 	var foo = 10
 
-	a := float64(6) / float64(127)
-	b := float64(130 - foo*2)
-
-	return 20 + b*a
+	return float64(foo) * (float64(6) / float64(127))
 }
 
 func PrintCPUInfo() {

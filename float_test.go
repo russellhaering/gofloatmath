@@ -7,7 +7,7 @@ import (
 var (
 	// expected is the value returned most often by the function(s) in testing, I've made
 	// no attempt to confirm that it's actually "correct".
-	expected = float64(25.196850393700785)
+	expected = float64(4.724409448818897)
 )
 
 func TestDoingMath(t *testing.T) {

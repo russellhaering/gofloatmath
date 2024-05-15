@@ -1,28 +1,25 @@
-package gofloatmath
+package main
 
 import (
-	"strconv"
 	"testing"
 )
 
 var (
-	foo = struct {
-		Bar int
-	}{
-		Bar: 10,
-	}
+	expected = float64(25.196850393700785)
 )
 
 func TestDoingMath(t *testing.T) {
-	expected, err := strconv.ParseFloat("25.196850393700785", 64)
-	if err != nil {
-		t.Error(err)
+	fns := map[string]func() float64{
+		"FirstWay":  FirstWay,
+		"SecondWay": SecondWay,
 	}
 
-	baz := float64(6) / float64(127)
-	x := float64(10)*2 + float64(130-foo.Bar*2)*baz
-
-	if x != expected {
-		t.Error("Expected", expected, "got", x)
+	for name, fn := range fns {
+		t.Run(name, func(t *testing.T) {
+			result := fn()
+			if result != expected {
+				t.Error("expected", expected, "got", result)
+			}
+		})
 	}
 }
